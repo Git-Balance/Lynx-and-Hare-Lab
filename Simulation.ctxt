@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Simulation
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=
+comment2.target=Simulation()
+comment3.params=
+comment3.target=void\ nextStep()
+comment4.params=
+comment4.target=void\ displayInfo()
+comment5.params=
+comment5.target=void\ tests()
+numComments=6

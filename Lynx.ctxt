@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Lynx
+comment1.params=
+comment1.target=Lynx()
+comment2.params=newState
+comment2.target=void\ changeReproduce(boolean)
+comment3.params=
+comment3.target=boolean\ getReproduce()
+comment4.params=preys
+comment4.target=void\ eatPrey(java.util.ArrayList)
+comment5.params=
+comment5.target=void\ reset()
+comment6.params=
+comment6.target=java.lang.String\ toString()
+numComments=7
