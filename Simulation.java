@@ -17,7 +17,7 @@ public class Simulation {
 
         final String line = "-------------------------";
         final String instructions = "Enter what you want to do (n,d,t,q)\n> "; 
-        
+
         simulation.displayInfo();
         System.out.println(line);
         System.out.print(instructions);
@@ -42,7 +42,7 @@ public class Simulation {
                     e.printStackTrace();
                 }
             }
-            
+
             System.out.println(line);
             simulation.displayInfo();
             System.out.println(line);
@@ -91,14 +91,49 @@ public class Simulation {
         }
 
         // Remove dead organisms
-        for (int x = 0; x < hares.size(); x++) {
-            if (!(hares.get(x).getAlive())) {
-                hares.remove(x);
+        // TODO:    The current fixes aren't working, figure it out next session
+        // NOTE1:   This current fix is working, but I HAVE NOT IDEA WHY
+        //          I commented out the first 2 hareIndex++ lines of code, and that worked?
+        //          Figure out why it worked, make the code look better, then copy it for the lynxes
+        // NOTE2:   "If (hares.contains(hareIndex + 1) == false), then hareIndex++" was causing the bug
+        //          It IS necessary is some form
+        //          However, skipping the next hare when the condition returns true causes problems
+        //          It should be reworked to:
+        //              else if (hares.contains(hareIndex + 1) == true) {
+        //                  hareIndex++;
+        //          Then remove the final alone "else { ... }" statement
+        // NOTE3:   Attempted the rework, and it is working
+        //          Going to apply the new removal program to lynxes
+        
+        int hareIndex = 0;
+        while (hareIndex < hares.size()) {
+            if (hares.get(hareIndex).getAlive() == false) {
+                hares.remove(hareIndex);
+                if (hares.contains(hareIndex) && hares.get(hareIndex).getAlive() == true) {
+                    hareIndex++;
+                }
+                else if (hares.contains(hareIndex + 1) == true) {
+                    hareIndex++;
+                }
+            }
+            else {
+                hareIndex++;
             }
         }
-        for (int x = 0; x < lynxes.size(); x++) {
-            if (!(lynxes.get(x).getAlive())) {
-                lynxes.remove(x);
+        int lynxIndex = 0;
+        while (lynxIndex < lynxes.size()) {
+            if (lynxes.get(lynxIndex).getAlive() == false) {
+                lynxes.remove(lynxIndex);
+                if (lynxes.contains(lynxIndex) && lynxes.get(lynxIndex).getAlive() == true) { 
+                    lynxIndex++; 
+                    ;
+                }
+                else if (lynxes.contains(lynxIndex + 1) == true) {
+                    lynxIndex++;
+                }
+            }
+            else {
+                lynxIndex++;
             }
         }
 
